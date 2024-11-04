@@ -40,7 +40,9 @@ This work builds on the original architecture introduced in [Semi-Supervised Cla
 
 The model’s objective function combines a supervised loss with a regularization term to enforce smoothness over the graph:
 
-$$\mathcal{L} = \mathcal{L}_0 + \lambda \mathcal{L}_{\text{reg}}, \quad \text{where } \mathcal{L}_{\text{reg}} = \sum_{i,j} A_{ij} ||f(X_i) - f(X_j)||^2$$
+$$
+\mathcal{L} = \mathcal{L}_0 + \lambda \mathcal{L}_{\text{reg}}, \quad \text{where } \mathcal{L}_{\text{reg}} = \sum_{i,j} A_{ij} ||f(X_i) - f(X_j)||^2
+$$
 
 Here, $A_{ij}$ represents connections between nodes $ i $ and $j$, and the regularization term minimizes differences in feature values across connected nodes, promoting smoothness in the learned representations.
 
