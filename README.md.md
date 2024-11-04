@@ -149,7 +149,7 @@ In this capstone project, we explored various geometric deep learning models, ev
 
 We also checked what happened when we added layers to both GAT and GCN models
 
-![GCN Layer Graph](../GCN_Layer.png)        ![GAT Layer Graph](../GAT_Layer.png)
+![GCN Layer Graph](/GCN_Layer.png)        ![GAT Layer Graph](/GAT_Layer.png)
 
 
 Adding layers to both GCN and GAT models resulted in a general decrease in accuracy, a phenomenon likely due to oversquashing and oversmoothing. As more layers aggregate information from each node, the distinctiveness of each node's features may be lost, leading to reduced model performance. Specifically, as layers increase, node embeddings become increasingly similar, which limits the model’s ability to distinguish between different classes and reduces its discriminative power.
