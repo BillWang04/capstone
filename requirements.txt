@@ -1,0 +1,17 @@
+torch
+torchvision
+torchaudio
+matplotlib
+numpy
+otter-grader
+notebook
+pandas
+Pillow
+pydantic
+PyYAML
+requests
+tqdm
+urllib3
+scikit-learn
+seaborn
+beautifulsoup4
