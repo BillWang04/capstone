@@ -40,11 +40,9 @@ This work builds on the original architecture introduced in [Semi-Supervised Cla
 
 The model’s objective function combines a supervised loss with a regularization term to enforce smoothness over the graph:
 
-$$
-\mathcal{L} = \mathcal{L}_0 + \lambda \mathcal{L}_{\text{reg}}, \quad \text{where } \mathcal{L}_{\text{reg}} = \sum_{i,j} A_{ij} ||f(X_i) - f(X_j)||^2.
-$$
+$$\mathcal{L} = \mathcal{L}_0 + \lambda \mathcal{L}_{\text{reg}}, \quad \text{where } \mathcal{L}_{\text{reg}} = \sum_{i,j} A_{ij} ||f(X_i) - f(X_j)||^2$$
 
-Here, $ A_{ij} $ represents connections between nodes $ i $ and $ j $, and the regularization term minimizes differences in feature values across connected nodes, promoting smoothness in the learned representations.
+Here, $A_{ij}$ represents connections between nodes $ i $ and $j$, and the regularization term minimizes differences in feature values across connected nodes, promoting smoothness in the learned representations.
 
 Single Layer:
 
@@ -85,21 +83,17 @@ Filtering in the spectral domain allows for flexible manipulation of signal freq
 
 #### Graph Laplacian Interpretation
 
-The graph Laplacian, $ L $, encodes smoothness across nodes and edges. Given a graph signal $ x $, we can measure smoothness as:
+The graph Laplacian, $L$, encodes smoothness across nodes and edges. Given a graph signal $x$, we can measure smoothness as:
 
-$$
-x^T L x = \sum_{i,j} A_{ij}(x_i - x_j)^2.
-$$
+$$x^T L x = \sum_{i,j} A_{ij}(x_i - x_j)^2.$$
 
-This term sums differences in feature values across connected nodes, penalizing larger differences to promote smoothness. For connected nodes $ i $ and $ j $, when $ x_i = x_j $, the contribution is zero, while disconnected nodes are ignored.
+This term sums differences in feature values across connected nodes, penalizing larger differences to promote smoothness. For connected nodes $i$ and $j$, when $x_i = x_j$, the contribution is zero, while disconnected nodes are ignored.
 
 ### Chebyshev Polynomial Approximation
 
 To avoid expensive eigenvector calculations, spectral filtering can be efficiently approximated using Chebyshev polynomials:
 
-$$
-g_{\theta'}(\Lambda) \approx \sum_{k=0}^{K} \theta_k' T_k(\tilde{L}),
-$$
+$$g_{\theta'}(\Lambda) \approx \sum_{k=0}^{K} \theta_k' T_k(\tilde{L})$$
 
 where $ \tilde{\Lambda} = \frac{2}{\lambda_{\max}} \Lambda - I_N $, and $ \lambda_{\max} $ is the largest eigenvalue of $ L $. The coefficients $\theta ' \in \mathbb{R}^K$ is now a vector of Chebyshev coefficients. $ T_k(x) $ offer a **$ K $-localized filter** that captures information within each node’s $ K $-hop neighborhood, efficiently capturing local structure in the graph.
 
